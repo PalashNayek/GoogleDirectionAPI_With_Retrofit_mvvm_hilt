@@ -1,7 +1,6 @@
 package com.palash.googledirectionapi_with_retrofit_mvvm_hilt.view_models
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.palash.googledirectionapi_with_retrofit_mvvm_hilt.models.DirectionsResponse
