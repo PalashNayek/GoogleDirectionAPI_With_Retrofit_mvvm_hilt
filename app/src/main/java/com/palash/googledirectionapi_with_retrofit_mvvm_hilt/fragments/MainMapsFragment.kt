@@ -25,6 +25,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.android.PolyUtil
@@ -66,9 +67,9 @@ class MainMapsFragment : Fragment() {
     private var distance: String? = null
     private var duration: String? = null
 
-    //Destination lat long
-    private val destinationsLat: Double = "22.498657638837788".toDouble()
-    private val destinationLong: Double = "88.38712149546353".toDouble()
+    //Destination lat long //22.501314095804787, 88.38329130099031
+    private val destinationsLat: Double = "22.501314095804787".toDouble()
+    private val destinationLong: Double = "88.38329130099031".toDouble()
 
 
     override fun onCreateView(
@@ -160,6 +161,13 @@ class MainMapsFragment : Fragment() {
             markerOptions.title("$distance")
             mMap.addMarker(markerOptions)
             // mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(route., 100))
+            val boundsBuilder = LatLngBounds.Builder().include(LatLng(lastLocation.latitude,lastLocation.longitude)).include(LatLng(destinationsLat, destinationLong))
+
+            val bounds = boundsBuilder.build()
+            // Animate camera to fit the bounds with padding (optional)
+            val padding = 50 // in pixels
+            val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, padding)
+            mMap.animateCamera(cameraUpdate)
         }
     }
 
