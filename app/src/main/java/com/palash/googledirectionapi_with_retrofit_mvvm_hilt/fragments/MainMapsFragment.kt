@@ -67,9 +67,9 @@ class MainMapsFragment : Fragment() {
     private var distance: String? = null
     private var duration: String? = null
 
-    //Destination lat long //22.501314095804787, 88.38329130099031
-    private val destinationsLat: Double = "22.501314095804787".toDouble()
-    private val destinationLong: Double = "88.38329130099031".toDouble()
+    //Destination lat long //22.501314095804787, 88.38329130099031 //22.329321388357315, 87.68661658196696
+    private val destinationsLat: Double = "22.329321388357315".toDouble()
+    private val destinationLong: Double = "87.68661658196696".toDouble()
 
 
     override fun onCreateView(
